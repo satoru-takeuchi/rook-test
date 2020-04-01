@@ -126,7 +126,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   local:
-    path: /dev/sdf
+    path: /dev/sdg
   nodeAffinity:
     required:
       nodeSelectorTerms:

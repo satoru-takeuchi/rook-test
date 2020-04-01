@@ -114,6 +114,7 @@ spec:
       containers:
       - name: rook-ceph-operator
         image: quay.io/satoru_takeuchi/rook-ceph:202004011710
+        imagePullPolicy: Always
         args: ["ceph", "operator"]
         volumeMounts:
         - mountPath: /var/lib/rook

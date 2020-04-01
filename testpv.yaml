@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: testpv
+  name: testpv-1-0
 spec:
   capacity:
     storage: 5Gi
@@ -20,3 +20,119 @@ spec:
           operator: In
           values:
           - kind-worker
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: testpv-1-1
+spec:
+  capacity:
+    storage: 5Gi
+  volumeMode: Block
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /dev/sdc
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - kind-worker
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: testpv-2-0
+spec:
+  capacity:
+    storage: 5Gi
+  volumeMode: Block
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /dev/sdd
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - kind-worker2
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: testpv-2-1
+spec:
+  capacity:
+    storage: 5Gi
+  volumeMode: Block
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /dev/sde
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - kind-worker2
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: testpv-3-0
+spec:
+  capacity:
+    storage: 5Gi
+  volumeMode: Block
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /dev/sdf
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - kind-worker3
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: testpv-3-1
+spec:
+  capacity:
+    storage: 5Gi
+  volumeMode: Block
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /dev/sdf
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - kind-worker3
+---

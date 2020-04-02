@@ -25,7 +25,7 @@ spec:
   skipUpgradeChecks: false
   continueUpgradeAfterChecksEvenIfNotHealthy: false
   dashboard:
-    enabled: true
+    enabled: false
     ssl: true
   network:
     hostNetwork: false
@@ -55,7 +55,7 @@ spec:
       placement:
         topologySpreadConstraints:
          - maxSkew: 1
-           topologyKey: kubernetes.io/hostname
+           topologyKey: tsc
            whenUnsatisfiable: DoNotSchedule
            labelSelector:
              matchExpressions:
@@ -63,9 +63,6 @@ spec:
                operator: In
                values:
                - rook-ceph-osd
-             - key: app
-               operator: In
-               values:
                - rook-ceph-osd-prepare
       #placement:
       #  podAntiAffinity:
